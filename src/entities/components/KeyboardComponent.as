@@ -16,26 +16,31 @@ package entities.components
 		public function KeyboardComponent(player:PlayerEntity) 
 		{
 			this.player = player;
+			
+			Input.define("left", Key.A);
+			Input.define("right", Key.D);
+			Input.define("up", Key.W);
+			Input.define("down", Key.S);
 		}
 		
 		public function update():void 
 		{
-			if (Input.check(Key.LEFT))
+			if (Input.check("left"))
 			{
 				player.x -= FP.elapsed * player.playerSpeed;
 			}
 			
-			if (Input.check(Key.RIGHT))
+			if (Input.check("right"))
 			{
 				player.x += FP.elapsed * player.playerSpeed;
 			}
 			
-			if (Input.check(Key.UP))
+			if (Input.check("up"))
 			{
 				player.y -= FP.elapsed * player.playerSpeed;
 			}
 			
-			if (Input.check(Key.DOWN))
+			if (Input.check("down"))
 			{
 				player.y += FP.elapsed * player.playerSpeed;
 			}
